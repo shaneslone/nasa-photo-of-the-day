@@ -5,35 +5,32 @@ import './App.css';
 import Post from './Post';
 
 function App() {
-  const [imageData, setImageData] = useState(null);
+  const [imageData, setImageData] = useState({
+    title: null,
+    url: null,
+    explanation: null,
+  });
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}?api_key=${API_KEY}`)
-      .then(res => {
-        setImageData(res.data);
-      })
-      .catch(err => {
-        debugger;
-      });
-    console.log(imageData);
+    const setData = () => {
+      axios
+        .get(`${BASE_URL}?api_key=${API_KEY}`)
+        .then(res => {
+          setImageData(res.data);
+        })
+        .catch(err => {
+          debugger;
+        });
+    };
+    setData();
   }, []);
-
   return (
     <div className='App'>
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun{' '}
-        <span role='img' aria-label='go!'>
-          🚀
-        </span>
-        !
-      </p>
-      {/* <Post
+      <Post
         title={imageData.title}
         image={imageData.url}
         description={imageData.explanation}
-      /> */}
+      />
     </div>
   );
 }

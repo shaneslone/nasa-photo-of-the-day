@@ -9,7 +9,7 @@ export default function Post(props) {
   return (
     <div>
       <Title title={title} />
-      <Image title={image} />
+      <Image image={image} />
       <Description description={description} />
     </div>
   );

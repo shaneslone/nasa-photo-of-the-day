@@ -4,13 +4,14 @@ import styled from 'styled-components';
 const StyledImg = styled.img`
   margin: 0 auto;
   display: block;
+  width: 50%;
 `;
 
 const StyledDiv = styled.div`
  position: relative;
   overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%;
+  width: 50%;
+  padding-top: 28.125%;
 `;
 
 const StyledIframe = styled.iframe`

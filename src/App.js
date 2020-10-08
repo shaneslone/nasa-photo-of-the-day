@@ -6,10 +6,20 @@ import Post from './Post';
 import DatePicker from 'react-datepicker';
 import styled from 'styled-components'
 import 'react-datepicker/dist/react-datepicker.css';
+import Header from './Header'
 
 const AppStyle = styled.div`
   width: 60%;
   margin: 0 auto;
+  text-align: center;
+  padding: 0;
+
+  h2{
+    font-size:2rem;
+    color: ${[pr => pr.theme.primaryColor]};
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 function App(props) {
@@ -39,7 +49,9 @@ function App(props) {
   }, [selectedDate]);
   console.log(selectedDate);
   return (
+    
     <AppStyle>
+     <Header theme={props.theme}/>
       <h2>Pick a date:</h2>
       <DatePicker
         selected={selectedDate}
@@ -47,6 +59,7 @@ function App(props) {
         dateFormat='yyyy-MM-dd'
         maxDate={new Date()}
       />
+      
       <Post
         title={imageData.title}
         image={imageData.url}

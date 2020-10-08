@@ -4,10 +4,15 @@ import { BASE_URL, API_KEY } from './constants';
 import './App.css';
 import Post from './Post';
 import DatePicker from 'react-datepicker';
-
+import styled from 'styled-components'
 import 'react-datepicker/dist/react-datepicker.css';
 
-function App() {
+const AppStyle = styled.div`
+  width: 60%;
+  margin: 0 auto;
+`;
+
+function App(props) {
   const [imageData, setImageData] = useState({});
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -34,7 +39,7 @@ function App() {
   }, [selectedDate]);
   console.log(selectedDate);
   return (
-    <div className='App'>
+    <AppStyle>
       <h2>Pick a date:</h2>
       <DatePicker
         selected={selectedDate}
@@ -47,8 +52,9 @@ function App() {
         image={imageData.url}
         description={imageData.explanation}
         mediaType={imageData.media_type}
+        theme={props.theme}
       />
-    </div>
+    </AppStyle>
   );
 }
 

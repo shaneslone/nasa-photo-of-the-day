@@ -46,6 +46,7 @@ function App() {
         title={imageData.title}
         image={imageData.url}
         description={imageData.explanation}
+        mediaType={imageData.media_type}
       />
     </div>
   );

@@ -5,6 +5,12 @@ const StyledImg = styled.img`
   margin: 0 auto;
   display: block;
   width: 50%;
+
+  &:hover{
+    transform: scale(1.2);
+      transition: all 0.5s ease-in-out;
+    }
+    transition: all 0.5s ease-in-out;
 `;
 
 const StyledDiv = styled.div`
@@ -31,7 +37,8 @@ export default function Image(props) {
   if (mediaType === 'video') return <StyledDiv><StyledIframe src={image} allowFullScreen /></StyledDiv>;
   return (
     <div>
-      <StyledImg src={image} alt='NASA photo of the day' />
+      <a href={image}>
+      <StyledImg src={image} alt='NASA photo of the day' /></a>
     </div>
   );
 }
